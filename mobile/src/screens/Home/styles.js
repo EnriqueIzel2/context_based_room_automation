@@ -6,12 +6,17 @@ export const Container = styled.View`
   justify-content: center;
 `;
 
-export const PickerContainer = styled.View`
+export const DateContainer = styled.TouchableOpacity`
   width: 80%;
   height: 100px;
   background-color: blue;
   margin-bottom: 50px;
 `;
+
+export const DateText = styled.Text`
+  font-size: 30px;
+`;
+
 export const ListContainer = styled.View`
   align-items: center;
   width: 90%;
