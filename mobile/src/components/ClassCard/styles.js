@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const TouchableContainer = styled.TouchableOpacity`
   width: 100%;
   padding: 10px;
   background-color: ${({ status }) =>
