@@ -1,3 +1,4 @@
+const { beforeAll, afterAll } = require('@jest/globals');
 const database = require('../database/connection');
 
 test('Professor Girafales exist', async () => {
@@ -10,7 +11,7 @@ test('Professor Girafales exist', async () => {
 });
 
 test('Obtain professor Girafales calendar', async () => {
-  const names = await database({disciplines: 'disciplines'})
+  const data = await database({disciplines: 'disciplines'})
     .select({
       disciplineName: 'disciplines.name',
       startClass: 'calendar.start_class',
@@ -21,7 +22,7 @@ test('Obtain professor Girafales calendar', async () => {
     .join('professors', 'professors.id', '=', 'calendar.discipline_id')
     .first();
 
-  expect(names).toEqual({
+  expect(data).toEqual({
     disciplineName: "Tópicos Especiais 1",
     startClass: "2020-10-23 15:00", 
     endClass: "2020-10-23 16:00",
