@@ -1,11 +1,13 @@
-import React from "react";
-import { Text, View, FlatList } from "react-native";
+import React, { useState } from "react";
 
 import { Background } from "../../components/Background";
+import DatePicker from "../../components/DatePicker";
+
 import ClassCard from "../../components/ClassCard";
 import {
   Container,
-  PickerContainer,
+  DateContainer,
+  DateText,
   ListContainer,
   TitleContainer,
   ListTitle,
@@ -41,12 +43,28 @@ const DATA = [
 ];
 
 const Home = () => {
+  const [newDate, setNewDate] = useState(new Date());
+  const [showPicker, setShowPicker] = useState(false);
+
+  function handleShowPicker() {
+    setShowPicker(true);
+  }
+
+  function onChangeDate(date) {
+    console.log(date);
+    setShowPicker(Platform.OS === "ios");
+    setNewDate(date);
+  }
+
   return (
     <Background>
       <Container>
-        <PickerContainer>
-          <Text>Picker</Text>
-        </PickerContainer>
+        <DateContainer onPress={handleShowPicker}>
+          <DateText>Data de Hoje </DateText>
+          {showPicker && (
+            <DatePicker date={newDate} onChangeDate={onChangeDate} />
+          )}
+        </DateContainer>
 
         <ListContainer>
           <TitleContainer>
