@@ -7,10 +7,13 @@ export const Container = styled.View`
 `;
 
 export const DateContainer = styled.TouchableOpacity`
-  width: 80%;
+  width: 70%;
   height: 100px;
-  background-color: blue;
+  background-color: #9cec5b;
   margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 `;
 
 export const DateText = styled.Text`

@@ -20,7 +20,10 @@ const HomeNavigator = () => {
       <AppStack.Screen
         name="RoomDetails"
         component={RoomDetails}
-        options={{ headerStyle: { backgroundColor: "#3C896D" } }}
+        options={{
+          headerStyle: { backgroundColor: "#3C896D" },
+          title: false,
+        }}
       />
     </AppStack.Navigator>
   );
