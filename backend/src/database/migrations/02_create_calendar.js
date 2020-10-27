@@ -13,8 +13,14 @@ exports.up = async function(knex) {
         .references('id')
         .inTable('disciplines');
       
-      table.dateTime('start_class').notNullable();
-      table.dateTime('end_class').notNullable();
+      table.integer('classroom_id')
+        .notNullable()
+        .references('id')
+        .inTable('classroom');
+
+      table.dateTime('class_date').notNullable();
+      table.dateTime('class_start').notNullable();
+      table.dateTime('class_end').notNullable();
       table.boolean('class_status').notNullable();
     })
 };
