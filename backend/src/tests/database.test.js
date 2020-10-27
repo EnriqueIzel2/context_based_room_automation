@@ -92,12 +92,21 @@ test('Cancel a calendar class', async () => {
   expect(data).toBe(1);
 });
 
-// test('Reopen a calendar class', async () => {
-//   const calendarId = 1;
-//   const data = await database('calendar')
-//     .where('id', '=', calendarId)
-//     .update({
-//       class_status: 1
-//     })
-//   expect(data).toBe(1);
-// });
+function degrees_to_radians(degrees) {
+  var pi = Math.PI;
+  return degrees * (pi/180);
+}
+// -3.091659, -60.017877
+test('Calculate location in a Raio', async () => {
+  const lat = -51.01
+  const long = -2.5;
+  let result = 1 * Math.acos(
+    Math.cos(degrees_to_radians(-3.091659)) *
+    Math.cos(degrees_to_radians(lat)) *
+    Math.cos(degrees_to_radians(-60.017877) - degrees_to_radians(long)) +
+    Math.sin(degrees_to_radians(-3.091659)) *
+    Math.sin(degrees_to_radians(lat))  
+  )
+
+  expect(result).toBe(2);
+});
