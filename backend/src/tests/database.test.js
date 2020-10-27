@@ -50,7 +50,7 @@ test('Filter calendar by date', async () => {
     // .first();
 
   expect(data).toEqual([{
-      "calendarId": 3,
+      "calendarId": 1,
       "classEnd": "16:00",
       "classStart": "15:00",
       "classroomAirconditioner": 0,
@@ -60,7 +60,7 @@ test('Filter calendar by date', async () => {
       "statusClass": 1
     }, 
     {
-      "calendarId": 4,
+      "calendarId": 2,
       "classEnd": "20:00",
       "classStart": "19:00",
       "classroomAirconditioner": 0,
