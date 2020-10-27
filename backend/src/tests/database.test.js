@@ -71,3 +71,33 @@ test('Filter calendar by date', async () => {
     }
   ]);
 });
+
+test('Cancel a calendar class', async () => {
+  const calendarId = 1;
+
+  const classStatus = await database('calendar')
+    .select('class_status')
+    .where('id', '=', calendarId)
+    .first()
+
+  if(classStatus.class_status) {
+    classStatus.class_status = 0;
+  } else {
+    classStatus.class_status = 1;
+  }
+
+  const data = await database('calendar')
+  .where('id', '=', calendarId)
+  .update({class_status: classStatus.class_status})
+  expect(data).toBe(1);
+});
+
+// test('Reopen a calendar class', async () => {
+//   const calendarId = 1;
+//   const data = await database('calendar')
+//     .where('id', '=', calendarId)
+//     .update({
+//       class_status: 1
+//     })
+//   expect(data).toBe(1);
+// });
